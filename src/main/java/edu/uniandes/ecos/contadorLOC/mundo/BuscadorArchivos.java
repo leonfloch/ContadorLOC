@@ -25,8 +25,8 @@ public class BuscadorArchivos {
      * @return lista de archivos (.java) a los cuales se les va a realizar conteo
      */
     //@METODO
-    public static List<String> buscarArchivos(File directorio) {
-        List listaArchivos = new ArrayList<String>();
+    public static List<File> buscarArchivos(File directorio) {
+        List listaArchivos = new ArrayList<File>();
                     
         if (directorio.listFiles() != null) {
             for (File archivo : directorio.listFiles()) {                

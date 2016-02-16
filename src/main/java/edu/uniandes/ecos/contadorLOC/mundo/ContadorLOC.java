@@ -16,7 +16,7 @@ import java.util.List;
 public class ContadorLOC {
     
     /**
-     * lista de clases con información de conteo
+     * lista de clases con informaciï¿½n de conteo
      */
     private List<Clase> listaClases;
     
@@ -35,9 +35,9 @@ public class ContadorLOC {
         totalLineasLOC = 0;
         listaClases = new ArrayList<Clase>();
         
-        List<String> archivos = BuscadorArchivos.buscarArchivos(directorio);        
-        for (String archivo : archivos) {
-            listaClases.add(this.contarLineas(archivo));
+        List<File> archivos = BuscadorArchivos.buscarArchivos(directorio);        
+        for (File archivo : archivos) {
+            listaClases.add(this.contarLineas(archivo.getAbsolutePath()));
         }        
     }
     
@@ -49,6 +49,7 @@ public class ContadorLOC {
     //@METODO
     public Clase contarLineas(String archivo) {
         Clase clase = new Clase();
+        clase.setNombre(archivo);
                 
         try {            
             FileReader f = new FileReader(archivo);
@@ -61,7 +62,7 @@ public class ContadorLOC {
                 
                 if (cadena.contains("//@METODO")) {
                     items++;
-                } else if (esLineaContable(cadena)) {
+                } else if (esLineaContable(cadena.trim())) {
                     lineas++;
                 }
             }
@@ -87,7 +88,10 @@ public class ContadorLOC {
     private boolean esLineaContable(String linea) {
         boolean contable = true;
         
-        
+        if (linea.isEmpty() || linea.startsWith("/") || 
+                linea.startsWith("*") ) {
+            contable = false;
+        }
         return contable;
     }
 
