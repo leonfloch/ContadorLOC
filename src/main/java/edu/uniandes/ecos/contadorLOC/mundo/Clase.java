@@ -41,7 +41,8 @@ public class Clase {
      */
     //@METODO
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        String[] sub = nombre.split("\\\\");        
+        this.nombre = sub[sub.length-1];
     }
 
     /**

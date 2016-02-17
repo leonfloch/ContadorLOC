@@ -34,8 +34,8 @@ public class ContadorLOC {
     public ContadorLOC(File directorio) {    
         totalLineasLOC = 0;
         listaClases = new ArrayList<Clase>();
-        
-        List<File> archivos = BuscadorArchivos.buscarArchivos(directorio);        
+        BuscadorArchivos buscador = new BuscadorArchivos();
+        List<File> archivos = buscador.buscarArchivos(directorio);        
         for (File archivo : archivos) {
             listaClases.add(this.contarLineas(archivo.getAbsolutePath()));
         }        
@@ -60,7 +60,7 @@ public class ContadorLOC {
             int lineas = 0;
             while((cadena = b.readLine())!= null) {
                 
-                if (cadena.contains("//@METODO")) {
+                if (cadena.trim().startsWith("//@METODO")) {
                     items++;
                 } else if (esLineaContable(cadena.trim())) {
                     lineas++;

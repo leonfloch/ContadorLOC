@@ -5,34 +5,35 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- * Unit test for simple App.
+ * Clase encargada de realizar pruebas a la aplicacion
+ * @author Leonardo Valbuena Calderon
+ * @date 16/02/2016
  */
-public class AppTest 
-    extends TestCase
-{
+public class Prueba extends TestCase {
+    
     /**
      * Create the test case
      *
      * @param testName name of the test case
      */
-    public AppTest( String testName )
-    {
+    //@METODO
+    public Prueba( String testName ) {
         super( testName );
     }
 
     /**
      * @return the suite of tests being tested
      */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
+    //@METODO
+    public static Test suite() {
+        return new TestSuite( Prueba.class );
     }
 
     /**
      * Rigourous Test :-)
      */
-    public void testApp()
-    {
+    //@METODO
+    public void testApp() {
         assertTrue( true );
     }
 }

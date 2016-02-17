@@ -17,6 +17,18 @@ public class BuscadorArchivos {
      */
     private static final String EXTENSION_VALIDA = ".java";
     
+    /**
+     * Lista de archivos a los cuales se les va a contar lineas
+     */
+    private List<File> listaArchivos;
+    
+    /**
+     * 
+     */
+    //@METODO
+    public BuscadorArchivos() {        
+        listaArchivos = new ArrayList<File>();
+    }
     
     /**
      * Se encarga de buscar todos los archivos (.java) que se encuentren
@@ -25,9 +37,7 @@ public class BuscadorArchivos {
      * @return lista de archivos (.java) a los cuales se les va a realizar conteo
      */
     //@METODO
-    public static List<File> buscarArchivos(File directorio) {
-        List listaArchivos = new ArrayList<File>();
-                    
+    public List<File> buscarArchivos(File directorio) {          
         if (directorio.listFiles() != null) {
             for (File archivo : directorio.listFiles()) {                
                 if (archivo.isDirectory()) {
